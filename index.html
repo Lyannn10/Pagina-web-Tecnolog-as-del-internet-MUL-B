@@ -1,244 +1,11 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <link rel="icon" type="image/png" href="Imagenes/favicon.png">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NailGrace - Maquetacion</title>
-  <style>
-    /* ===== Variables ===== */
-    :root{
-      --pink-200:#ffd6e8;
-      --accent:#ec4899;
-      --muted:#6b6b6b;
-      --card:#ffffff;
-      --radius:14px;
-      --section-padding:40px;
-      font-family: "Inter", system-ui, sans-serif;
-    }
-
-    *{box-sizing:border-box; margin:0; padding:0}
-    body{background:#fff; color:#111; line-height:1.4; -webkit-font-smoothing:antialiased;}
-
-    /* ===== Contenedores y layout principal ===== */
-    .site { display:grid; gap: 24px; align-items:start; justify-items:center; width:100%; }
-    .container { width:100%; margin:0; align-items:stretch;}
-    
-    /* ===== Fondos por página ===== */
-    #home, #services, #login, #register { background:#FFF8FB; }
-
-    .topbar { background:#9b9b9b; color:white; padding:6px 12px; font-size:14px; width:100%; }
-
-    /* ===== Header (reutilizable) ===== */
-    header.header { display:flex; align-items:center; justify-content:space-between; padding:10px 50px; width:100%; margin:0; background:#FFEBF4; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:700; font-size:18px; }
-    .logo { width:36px; height:28px; border-radius:6px; background: linear-gradient(90deg,#ffc0da,#ff9bc4); }
-    nav.mainnav { display:flex; gap:16px; }
-    nav.mainnav a { text-decoration:none; color:#333; font-weight:600; padding:8px 12px; border-radius:999px; display: inline-block; text-align: center; min-width: 100px;}
-    nav.mainnav a.active { background:var(--pink-200); color:var(--accent); }
-    .actions { display:flex; gap:10px; }
-    .btn { padding:8px 14px; border-radius:999px; border:0; cursor:pointer; font-weight:700; min-width: 160px; /* todos tendrán al menos este ancho */  text-align: center;}
-    .btn-light { background:#fff; color:var(--accent); border:1px solid rgba(0,0,0,0.06); }
-    .btn-primary { background:var(--accent); color:white; }
-
-    /* ===== HERO (Inicio) ===== */
-    .hero { width:95%; margin:0; padding:var(--section-padding); background: #FFF0F6; border-radius:10px; border:2px solid #F5D0E0; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
-    .hero-grid { display:grid; grid-template-columns: 1fr 400px; gap:24px; align-items:center; }
-    .hero h1{ font-size:28px; margin-bottom:12px; }
-    .hero p{ margin-bottom:16px; color:var(--muted); }
-    .hero-ctas{ display:flex; gap:12px; }
-    .hero-visual { display:flex; gap:10px; justify-content:flex-end; }
-    .thumb { width:120px; height:120px; border-radius:10px; background:linear-gradient(180deg,#fff,#ffeaf2); display:flex;align-items:center;justify-content:center; }
-
-    /* ===== Tips / 'Cómo cuidar tus uñas' (6 items) ===== */
-    .tips-wrapper {
-      position: relative;
-      width: 90%;
-      overflow: visible;
-      flex: 1;
-    }
-
-    .tips-list {
-      position: relative;
-      display: flex;
-      transition: transform 0.5s ease; /* animación suave al cambiar */
-      width: 100%;
-      align-items: center;
-    }
-
-    .tip-item {
-      flex: 0 0 100%;                /* cada tip ocupa toda la pantalla */
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* siempre imagen izquierda - texto derecha */
-      gap: 20px;
-      align-items: center;
-      padding: 20px;
-      background: #FFF0F6;
-      border-radius: 10px;
-      border:2px solid #F5D0E0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    .tip-img {
-      width: 100%;
-      height: 220px;
-      border-radius: 12px;
-      background: linear-gradient(180deg,#fff,#ffeaf2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .tip-text h3 { margin-bottom: 10px; }
-    .tip-text p { margin-bottom: 14px; color: var(--muted); }
-
-    /* Flechas */
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      background: var(--pink-200);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--accent);
-    }
-    .arrow.left { left: -50px; }
-    .arrow.right { right: -50px; }
-
-    /* ===== Services (lista de servicios) ===== */
-    .services-inner { width: 100%; margin:0 auto; padding:var(--section-padding); box-sizing:border-box; }
-    .services-list { display: grid; gap: 20px;}
-    .service-card {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 14px;
-      border: 1px solid rgba(236,72,153,0.06);
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* dos columnas iguales por defecto */
-      gap: 22px;
-      align-items: center;
-    }
-
-    .service-media {
-      width: 100%; /* que se adapte */
-      height: 180px;
-      border-radius: 16px;
-      background: var(--pink-200);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .service-card h3 { margin-bottom: 8px; font-size: 18px;}
-    .service-card p { margin-bottom: 12px; color: var(--muted);}
-    .service-cta { text-align: center;}
-
-    /* ===== Footer (reutilizable) ===== */
-    footer.site-footer {
-      width: 100%;
-      margin: 0;
-      padding: 40px 60px 20px;
-      background: #ffeaf2; /* rosado más claro */
-      border-top: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-bottom: 30px;
-    }
-
-    .footer-grid h4 {
-      margin-bottom: 14px;
-      font-size: 16px;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .footer-grid ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-grid li {
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Íconos de redes sociales */
-    .footer-grid li i {
-      display: inline-flex;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      background: var(--accent);
-      color: white;
-    }
-
-    /* Línea inferior */
-    .footer-bottom {
-      text-align: start;
-      font-size: 13px;
-      color: var(--muted);
-      border-top: 1px solid rgba(0,0,0,0.05);
-      padding-top: 15px;
-    }
-
-    /* ===== Auth: Login & Register (hacer que ocupen casi toda la pantalla) ===== */
-    /* El wrapper .auth-viewport se extiende full-bleed; .auth-page mantiene max-width y la columna izquierda se pinta en toda la altura visual */
-    .auth-viewport { width:100%; background:linear-gradient(180deg,#fff,#fff); padding:0; box-sizing:border-box; }
-    .auth-page {
-      width:100%;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 1fr 480px;
-      gap:24px;
-      align-items:stretch;
-      height:550px;
-      padding: 0 24px;
-      box-sizing:border-box;
-    }
-    .auth-left {
-      background:linear-gradient(180deg,#f7f0f4,#ffc9e0);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:60px;
-      border-radius:14px;
-    }
-    .auth-left .text { max-width:640px; }
-    .auth-card {
-      background:#fff;
-      margin:40px 0;
-      border-radius:20px;
-      padding:28px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.08);
-    }
-    .auth-card h3{ margin-bottom:6px;}
-    input[type="email"],input[type="password"]{ width:100%; padding:12px; border-radius:10px; border:1px solid #ddd; }
-
-  </style>
+  <title>NailGrace</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- ===== HOME ===== -->
@@ -246,13 +13,17 @@
     <div class="topbar">Página de inicio</div>
 
     <header class="header">
-      <div class="brand"><div class="logo"></div>NailGrace</div>
-      <nav class="mainnav">
-        <a href="#home" class="active">Inicio</a>
-        <a href="#services">Servicios</a>
-        <a href="#register">Registro</a>
-        <a href="#login">Iniciar sesión</a>
-      </nav>
+        <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
+
+        <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#register">Registro</a>
+          <a href="#login">Iniciar sesión</a>
+        </nav>
+      
     </header>
 
     <section class="hero">
@@ -276,71 +47,74 @@
 
     <h2 style="width:95%;max-width:var(--max-desktop);margin:20px auto 10px;">¿Cómo cuidar tus uñas?</h2>
 
-    <section class="tips-wrapper">
+    <section class="tips-section">
       <!-- Flecha izquierda -->
       <button class="arrow left" aria-label="Anterior" onclick="moveSlide(-1)">‹</button>
 
       <!-- Carrusel -->
-      <div class="tips-list" id="tipsList" aria-label="Consejos para las uñas">
-        
-        <article class="tip-item">
-          <div class="tip-img">Img</div>
-          <div class="tip-text">
-            <h3>No morderte las uñas.</h3>
-            <p>Morder las uñas debilita la lámina ungueal y puede causar infecciones. 
-              Usa técnicas de manejo de estrés y mantén las uñas limadas.</p>
-            <button class="btn btn-primary">Reserva tu cita</button>
-          </div>
-        </article>
+      <div class="tips-wrapper">
+        <div class="tips-list" id="tipsList" aria-label="Consejos para las uñas">
+          
+          <article class="tip-item">
+            <div class="tip-img">Img</div>
+            <div class="tip-text">
+              <h3>No morderte las uñas.</h3>
+              <p>Morder las uñas debilita la lámina ungueal y puede causar infecciones. 
+                Usa técnicas de manejo de estrés y mantén las uñas limadas.</p>
+              <button class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
 
-        <article class="tip-item">
-          <div class="tip-img">Img</div>
-          <div class="tip-text">
-            <h3>Retocar cada 21–25 días</h3>
-            <p>El mantenimiento regular ayuda a mantener la forma y evita roturas.</p>
-            <button class="btn btn-primary">Reserva tu cita</button>
-          </div>
-        </article>
+          <article class="tip-item">
+            <div class="tip-img">Img</div>
+            <div class="tip-text">
+              <h3>Retocar cada 21–25 días</h3>
+              <p>El mantenimiento regular ayuda a mantener la forma y evita roturas.</p>
+              <button class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
 
-        <article class="tip-item">
-          <div class="tip-img">Img</div>
-          <div class="tip-text">
-            <h3>No arrancar gel o acrílico.</h3>
-            <p>Retíralos con la ayuda de un profesional para no dañar la lámina ungueal.</p>
-            <button class="btn btn-primary">Reserva tu cita</button>
-          </div>
-        </article>
+          <article class="tip-item">
+            <div class="tip-img">Img</div>
+            <div class="tip-text">
+              <h3>No arrancar gel o acrílico.</h3>
+              <p>Retíralos con la ayuda de un profesional para no dañar la lámina ungueal.</p>
+              <button class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
 
-        <article class="tip-item">
-          <div class="tip-img">Img</div>
-          <div class="tip-text">
-            <h3>Usar guantes para proteger tus uñas.</h3>
-            <p>Al realizar tareas de limpieza o manipular químicos, protege tus uñas 
-              con guantes adecuados para evitar daños.</p>
-            <button class="btn btn-primary">Reserva tu cita</button>
-          </div>
-        </article>
+          <article class="tip-item">
+            <div class="tip-img">Img</div>
+            <div class="tip-text">
+              <h3>Usar guantes para proteger tus uñas.</h3>
+              <p>Al realizar tareas de limpieza o manipular químicos, protege tus uñas 
+                con guantes adecuados para evitar daños.</p>
+              <button class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
 
-        <article class="tip-item">
-          <div class="tip-img">Img</div>
-          <div class="tip-text">
-            <h3>No usarlas como herramienta.</h3>
-            <p>Evita abrir objetos o raspar superficies con tus uñas, ya que esto las debilita 
-              y puede causar desprendimiento del esmalte.</p>
-            <button class="btn btn-primary">Reserva tu cita</button>
-          </div>
-        </article>
+          <article class="tip-item">
+            <div class="tip-img">Img</div>
+            <div class="tip-text">
+              <h3>No usarlas como herramienta.</h3>
+              <p>Evita abrir objetos o raspar superficies con tus uñas, ya que esto las debilita 
+                y puede causar desprendimiento del esmalte.</p>
+              <button class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
 
-        <article class="tip-item">
-          <div class="tip-img">Img</div>
-          <div class="tip-text">
-            <h3>Acudir a tu manicurista en caso de desprendimiento.</h3>
-            <p>Si notas que el esmalte comienza a levantarse, visita tu manicurista 
-              para una reparación adecuada y evitar daños mayores.</p>
-            <button class="btn btn-primary">Reserva tu cita</button>
-          </div>
-        </article>
+          <article class="tip-item">
+            <div class="tip-img">Img</div>
+            <div class="tip-text">
+              <h3>Acudir a tu manicurista en caso de desprendimiento.</h3>
+              <p>Si notas que el esmalte comienza a levantarse, visita tu manicurista 
+                para una reparación adecuada y evitar daños mayores.</p>
+              <button class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
+        </div>
       </div>
+
       <!-- Flecha derecha -->
       <button class="arrow right" aria-label="Siguiente" onclick="moveSlide(1)">›</button>
     </section>
@@ -381,7 +155,7 @@
   <div class="site container" id="services">
     <div class="topbar">Página de Servicios</div>
     <header class="header">
-      <div class="brand"><div class="logo"></div>NailGrace</div>
+      <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
       <nav class="mainnav">
         <a href="#home" onclick="navigateTo('home')">Inicio</a>
         <a href="#services" class="active">Servicios</a>
@@ -461,10 +235,12 @@
   <div class="site auth-viewport" id="login" style="display:none;">
     <div class="topbar">Inicio de sesión</div>
     <header class="header">
-      <div class="brand"><div class="logo"></div>NailGrace</div>
+      <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
       <nav class="mainnav">
         <a href="#home" onclick="navigateTo('home')">Inicio</a>
-        <a href="#services" class="active">Servicios</a>
+        <a href="#services" onclick="navigateTo('services')">Servicios</a>
+        <a href="#register" onclick="navigateTo('register')">Registro</a>
+        <a href="#login" class="active">Iniciar Sesion</a>
       </nav>
     </header>
 
@@ -523,11 +299,13 @@
   <div class="site auth-viewport" id="register" style="display:none;">
     <div class="topbar">Registro</div>
 
-    <header class="header" style="padding-bottom:0;">
-      <div class="brand"><div class="logo"></div>NailGrace</div>
+    <header class="header">
+      <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
       <nav class="mainnav">
         <a href="#home" onclick="navigateTo('home')">Inicio</a>
         <a href="#services" onclick="navigateTo('services')">Servicios</a>
+        <a href="#register" class="active">Registro</a>
+        <a href="#login" onclick="navigateTo('login')">Iniciar sesión</a>
       </nav>
     </header>
 
@@ -582,40 +360,8 @@
   </div>
 
   <script>
-    // Navegación con hash y helper navigateTo
+    // ======== Navegación entre secciones ========
     const sections = ["home","services","login","register"];
-    let currentSlide = 0;
-
-    function moveSlide(direction) {
-      const list = document.getElementById("tipsList");
-      const items = document.querySelectorAll(".tip-item");
-      const total = items.length;
-
-      currentSlide = (currentSlide + direction + total) % total;
-      list.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-
-    function updateCarouselArrows() {
-      const list = document.querySelector('.tips-list');
-      const left = document.querySelector('.arrow.left');
-      const right = document.querySelector('.arrow.right');
-      if (!list || !left || !right) return;
-
-      left.disabled = list.scrollLeft <= 0;
-      right.disabled = Math.ceil(list.scrollLeft + list.clientWidth) >= list.scrollWidth;
-    }
-
-    (function initCarousel() {
-      const list = document.querySelector('.tips-list');
-      if (!list) return;
-
-      updateCarouselArrows();
-      list.addEventListener('scroll', () => {
-        if (list._updateTimeout) clearTimeout(list._updateTimeout);
-        list._updateTimeout = setTimeout(updateCarouselArrows, 50);
-      });
-      window.addEventListener('resize', updateCarouselArrows);
-    })();
 
     function showSection(id){
       sections.forEach(s => {
@@ -623,19 +369,49 @@
         if(!el) return;
         el.style.display = (s === id) ? "" : "none";
       });
-      // small UX: scroll top
       window.scrollTo({top:0, behavior:'instant'});
     }
+
     function navigateTo(id){
       location.hash = id;
       showSection(id);
     }
+
     window.addEventListener('hashchange', ()=> {
       const id = location.hash.replace('#','') || 'home';
       if(sections.includes(id)) showSection(id);
     });
-    // inicializar view
+
+    // inicializar vista
     showSection(location.hash.replace('#','') || 'home');
+
+
+    // ======== Carrusel de tips ========
+    const list = document.getElementById("tipsList");
+    const items = document.querySelectorAll(".tip-item");
+    const total = items.length;
+    let currentSlide = 0;
+
+    function moveSlide(direction) {
+      // Actualiza el índice según la dirección (-1 = anterior, +1 = siguiente)
+      currentSlide = (currentSlide + direction + total) % total;
+      // Mueve el carrusel
+      list.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+
+    // ======== Menú hamburguesa ========
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.mainnav');
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        menuToggle.innerHTML = menuToggle.classList.contains('active') ? '✕' : '&#9776;';
+      });
+    }
   </script>
+
 </body>
 </html>
