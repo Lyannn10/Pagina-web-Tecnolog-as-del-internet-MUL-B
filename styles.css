@@ -382,17 +382,22 @@ input[type="email"],input[type="password"]{ width:100%; padding:12px; border-rad
   .auth-page {
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem;
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    padding: 1.5rem !important;
   }
 
   .auth-card {
     width: 100% !important;
     max-width: 350px;
+    margin: 0 auto;
+
   }
 
   .auth-left {
     text-align: center;
     margin-bottom: 20px;
+    display: none !important;
   }
 
   /* ===== FOOTER ===== */
@@ -400,6 +405,11 @@ input[type="email"],input[type="password"]{ width:100%; padding:12px; border-rad
     grid-template-columns: 1fr;
     text-align: center;
     gap: 1rem;
+  }
+
+  .auth-card {
+    margin: 0 auto;
+    max-width: 350px;
   }
 }
 
@@ -498,4 +508,193 @@ input[type="email"],input[type="password"]{ width:100%; padding:12px; border-rad
     background: var(--pink-200);
     color: var(--accent);
   }
+}
+
+/* === NG-BOOKING appended styles === */
+
+
+/* ==== ng-booking: estilos mejorados y encapsulados ==== */
+.ng-booking-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 3000; font-family: inherit; }
+.ng-booking-modal[aria-hidden="false"] { display: flex; }
+.ng-booking-overlay { position:absolute; inset:0; background: rgba(0,0,0,0.45); backdrop-filter: blur(2px); }
+
+/* dialog */
+.ng-booking-dialog {
+  position: relative;
+  width: min(920px, 96%);
+  max-height: 90vh;
+  overflow:auto;
+  background: linear-gradient(180deg, #fff, #fff8fb);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+  border: 1px solid rgba(236,72,153,0.06);
+  color: #111;
+}
+
+/* header */
+.ng-booking-header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+.ng-booking-header h2 { font-size:1.05rem; margin:0; color: #3b3b3b; }
+.ng-booking-close { background:transparent; border:0; font-size:1.2rem; cursor:pointer; padding:6px 8px; border-radius:8px; }
+.ng-booking-close:hover { background: rgba(236,72,153,0.06); }
+
+/* steps */
+.ng-booking-steps { list-style:none; display:flex; gap:8px; padding:0; margin:0 0 12px; }
+.ng-step-ind {
+  background: #fff;
+  border:1px solid rgba(0,0,0,0.04);
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:0.9rem;
+  color:#555;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.ng-step-ind.ng-active {
+  background: linear-gradient(90deg, rgba(236,72,153,0.08), #fff);
+  color: #ec4899;
+  border-color: rgba(236,72,153,0.12);
+  box-shadow: 0 8px 18px rgba(236,72,153,0.07);
+}
+
+/* body */
+.ng-booking-body { padding:6px 0 4px; }
+.ng-step { margin-bottom:8px; }
+.ng-step label { display:block; margin:10px 0; color:#333; font-weight:600; }
+.ng-step input[type="date"], .ng-step input[type="time"] {
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid rgba(236,72,153,0.12);
+  background: linear-gradient(180deg,#fff,#fff8fb);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* layout paso 2 */
+.ng-services-wrap { display:grid; grid-template-columns: 1fr 320px; gap:16px; align-items:start; }
+.ng-services-list { display:flex; flex-direction:column; gap:10px; max-height:48vh; overflow:auto; padding-right:6px; }
+.ng-service-item {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px; border-radius:12px;
+  border:1px solid rgba(236,72,153,0.06);
+  background: linear-gradient(180deg,#fff,#fff6fb);
+  cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.ng-service-item:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(236,72,153,0.06); }
+.ng-service-item[aria-pressed="true"] {
+  background: linear-gradient(90deg, rgba(236,72,153,0.12), rgba(255,230,240,0.6));
+  border-color: rgba(236,72,153,0.18);
+  box-shadow: 0 14px 36px rgba(236,72,153,0.08);
+}
+
+/* cart */
+.ng-cart {
+  background: linear-gradient(180deg,#fff,#fff8fb);
+  padding:14px; border-radius:12px; border:1px solid rgba(236,72,153,0.04);
+}
+#ng-cart-list { list-style:none; padding:0; margin:0 0 10px; max-height:40vh; overflow:auto; }
+#ng-cart-list li { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed rgba(0,0,0,0.03); font-size:0.95rem; }
+.ng-cart-total { font-weight:800; margin-top:10px; color:#333; }
+
+/* actions and buttons */
+.ng-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:12px; }
+.ng-btn { padding:10px 14px; border-radius:999px; border:0; cursor:pointer; font-weight:700; }
+.ng-btn-light { background: #fff; color:#555; border:1px solid rgba(0,0,0,0.06); }
+.ng-btn-primary { background: linear-gradient(90deg,#ff5aa6,#ec4899); color:#fff; box-shadow: 0 10px 28px rgba(236,72,153,0.12); }
+
+/* small screens */
+@media (max-width:720px){
+  .ng-services-wrap { grid-template-columns: 1fr; }
+  .ng-booking-dialog { width: 96%; max-height: 95vh; padding:12px; }
+}
+
+/* subtle focus styles */
+.ng-btn:focus, .ng-service-item:focus, .ng-booking-close:focus {
+  outline: 3px solid rgba(236,72,153,0.14);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+
+/* === NG-AUTH appended styles === */
+
+/* NG-AUTH: profile button styling */
+header .mainnav .ng-profile-link {
+  background: transparent;
+  border: 0;
+  margin-left: 8px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+header .mainnav .ng-profile-link span { display:inline-block; width:36px; height:36px; border-radius:50%; }
+
+
+/* === Hover específico para "Reserva tu cita" (Inicio y Servicios) y "Ver servicios" en Inicio === */
+/* Aplica sólo dentro de #home y #services para evitar afectar el nav/header */
+#home [data-reserve].btn,
+#services [data-reserve].btn,
+#home .hero-ctas .btn.btn-light {
+  transition: background-color .18s ease, color .18s ease, transform .08s ease, box-shadow .18s ease;
+  will-change: transform, background-color, color;
+}
+
+/* pequeño levantamiento al pasar el mouse (sutil) */
+#home [data-reserve].btn:hover,
+#services [data-reserve].btn:hover,
+#home .hero-ctas .btn.btn-light:hover {
+  transform: translateY(-2px);
+}
+
+/* Reserva (botones primarios rosa) — oscurecer ligeramente en hover para notar interactividad */
+#home [data-reserve].btn.btn-primary:hover,
+#services [data-reserve].btn.btn-primary:hover {
+  background: linear-gradient(90deg, #e83b84, #c72b76); /* mismo tono, solo un poco más intenso */
+  box-shadow: 0 8px 20px rgba(236,72,153,0.12);
+  color: #fff;
+}
+
+/* Ver servicios (botón light en el hero) — cambiar a color de acento y texto blanco en hover */
+#home .hero-ctas .btn.btn-light:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 18px rgba(236,72,153,0.08);
+}
+
+/* focus accesible — para teclado */
+#home [data-reserve].btn:focus,
+#services [data-reserve].btn:focus,
+#home .hero-ctas .btn.btn-light:focus {
+  outline: 3px solid rgba(236,72,153,0.12);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+
+
+/* === Reglas para que las imágenes se muestren correctamente === */
+.thumb-img, .tip-img-el, .service-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* recorta la imagen para cubrir el espacio sin deformar */
+  border-radius: inherit;
+}
+
+/* Asegurar que el contenedor mantiene la forma y que la imagen no la rompe */
+.thumb { overflow: hidden; }
+.tip-img { overflow: hidden; }
+.service-media { overflow: hidden; display: flex; align-items: center; justify-content: center; }
+
+/* Si no hay imagen (src roto), se muestra el fondo rosa como respaldo */
+.service-media img[onerror] { display: block; }
+
+/* Ajustes para que las tarjetas con imagen y texto mantengan proporción agradable */
+.service-card { grid-template-columns: 1fr 1fr; }
+@media (max-width: 600px) {
+  .service-card { grid-template-columns: 1fr; }
+  .service-media { height: 220px; }
 }
