@@ -10,21 +10,26 @@
 <body>
   
   <div class="site container" id="home">
-    <div class="topbar">Página de inicio</div>
-
     <header class="header">
-        <img src="Imagenes\logo.png" alt="NailGrace logo" height="50">
+        <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
 
         <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
 
         <nav class="mainnav">
           <a href="#home" class="active">Inicio</a>
           <a href="#services">Servicios</a>
-          <a href="#register">Registro</a>
-          <a href="#login">Iniciar sesión</a>
           <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
         </nav>
-      
+
+
     </header>
 
     <section class="hero">
@@ -39,9 +44,9 @@
         </div>
 
         <div class="hero-visual">
-          <div class="thumb"><img src="Imagenes\logo1.jpg" alt="Miniatura" class="thumb-img"></div>
-          <div class="thumb"><img src="Imagenes\logo2.jpg" alt="Miniatura" class="thumb-img"></div>
-          <div class="thumb"><img src="Imagenes\logo3.jpg" alt="Miniatura" class="thumb-img"></div>
+          <div class="thumb"><img src="Imagenes/logo1.jpg" alt="Miniatura" class="thumb-img"></div>
+          <div class="thumb"><img src="Imagenes/logo2.jpg" alt="Miniatura" class="thumb-img"></div>
+          <div class="thumb"><img src="Imagenes/logo3.jpg" alt="Miniatura" class="thumb-img"></div>
         </div>
       </div>
     </section>
@@ -57,7 +62,7 @@
         <div class="tips-list" id="tipsList" aria-label="Consejos para las uñas">
           
           <article class="tip-item">
-            <div class="tip-img"><img src="Imagenes\comeruñas.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-img"><img src="Imagenes/comeruñas.jpg" alt="Consejo imagen" class="tip-img-el"></div>
             <div class="tip-text">
               <h3>No morderte las uñas.</h3>
               <p>Morder las uñas debilita la lámina ungueal y puede causar infecciones. 
@@ -67,7 +72,7 @@
           </article>
 
           <article class="tip-item">
-            <div class="tip-img"><img src="Imagenes\retocar.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-img"><img src="Imagenes/retocar.jpg" alt="Consejo imagen" class="tip-img-el"></div>
             <div class="tip-text">
               <h3>Retocar cada 21–25 días</h3>
               <p>El mantenimiento regular ayuda a mantener la forma y evita roturas.</p>
@@ -76,7 +81,7 @@
           </article>
 
           <article class="tip-item">
-            <div class="tip-img"><img src="Imagenes\arrancar.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-img"><img src="Imagenes/arrancar.jpg" alt="Consejo imagen" class="tip-img-el"></div>
             <div class="tip-text">
               <h3>No arrancar gel o acrílico.</h3>
               <p>Retíralos con la ayuda de un profesional para no dañar la lámina ungueal.</p>
@@ -85,7 +90,7 @@
           </article>
 
           <article class="tip-item">
-            <div class="tip-img"><img src="Imagenes\guantes.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-img"><img src="Imagenes/guantes.jpg" alt="Consejo imagen" class="tip-img-el"></div>
             <div class="tip-text">
               <h3>Usar guantes para proteger tus uñas.</h3>
               <p>Al realizar tareas de limpieza o manipular químicos, protege tus uñas 
@@ -95,7 +100,7 @@
           </article>
 
           <article class="tip-item">
-            <div class="tip-img"><img src="Imagenes\herramientas.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-img"><img src="Imagenes/herramientas.jpg" alt="Consejo imagen" class="tip-img-el"></div>
             <div class="tip-text">
               <h3>No usarlas como herramienta.</h3>
               <p>Evita abrir objetos o raspar superficies con tus uñas, ya que esto las debilita 
@@ -105,7 +110,7 @@
           </article>
 
           <article class="tip-item">
-            <div class="tip-img"><img src="Imagenes\rota.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-img"><img src="Imagenes/rota.jpg" alt="Consejo imagen" class="tip-img-el"></div>
             <div class="tip-text">
               <h3>Acudir a tu manicurista en caso de desprendimiento.</h3>
               <p>Si notas que el esmalte comienza a levantarse, visita tu manicurista 
@@ -121,50 +126,87 @@
     </section>
 
     <footer class="site-footer">
-        <div class="footer-grid">
-          <div>
-            <h4>Contáctanos</h4>
-            <ul>
-              <li><i>tel</i> +57 321 226 0538</li>
-              <li><i>gm</i> nailgrace_25@gmail.com</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Nuestros Servicios</h4>
-            <ul>
-              <li><i>cor</i>Manicure</li>
-              <li><i>cor</i>Pedicure</li>
-              <li><i>cor</i>Esmaltado semipermanente</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Redes Sociales</h4>
-            <ul>
-              <li><i>ig</i> @Nails_Grace</li>
-              <li><i>fac</i> @Nails_Grace</li>
-              <li><i>tik</i> @Nails_Grace</li>
-            </ul>
-          </div>
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
         </div>
-        <div class="footer-bottom">
-          © 2025 NailGrace · Política de privacidad · Términos
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
         </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
     </footer>
+
   </div>
 
   <!-- ===== SERVICES (con 3 servicios + footer) ===== -->
   <div class="site container" id="services">
-    <div class="topbar">Página de Servicios</div>
+
     <header class="header">
       <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
       <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-      <nav class="mainnav">
-        <a href="#home" class="active">Inicio</a>
-        <a href="#services">Servicios</a>
-        <a href="#register">Registro</a>
-        <a href="#login">Iniciar sesión</a>
-        <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
-      </nav>
+
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
+        </nav>
     </header>
 
     <div class="services-inner">
@@ -173,7 +215,7 @@
       <section class="services-list">
         <!-- Servicio 1 -->
         <article class="service-card">
-          <div class="service-media"><img src="Imagenes\uñasclasico.jpg" alt="Manicure" class="service-img"></div>
+          <div class="service-media"><img src="Imagenes/uñasclasico.jpg" alt="Manicure" class="service-img"></div>
           <div>
             <h3>Manicure clásico</h3>
             <p class="muted">Corte, limado y esmaltado tradicional para mantener tus uñas en forma.</p>
@@ -188,12 +230,12 @@
             <p class="muted">Relajación y cuidado completo de pies, con limpieza, exfoliación y esmaltado.</p>
             <div class="service-cta"><button data-reserve class="btn btn-primary" data-reserve data-service-name="Pedicure clásico" data-price="35000">Reserva tu cita</button></div>
           </div>
-          <div class="service-media"><img src="Imagenes\pies.jpg" alt="Pedicure" class="service-img"></div>
+          <div class="service-media"><img src="Imagenes/pies.jpg" alt="Pedicure" class="service-img"></div>
         </article>
 
         <!-- Servicio 3 -->
         <article class="service-card">
-          <div class="service-media"><img src="Imagenes\perma.jpg" alt="Esmaltado semipermanente" class="service-img"></div>
+          <div class="service-media"><img src="Imagenes/perma.jpg" alt="Esmaltado semipermanente" class="service-img"></div>
           <div>
             <h3>Esmaltado semipermanente</h3>
             <p class="muted">Color de larga duración, brillo intenso y resistencia hasta por semanas.</p>
@@ -203,50 +245,85 @@
       </section>
     </div>
     <footer class="site-footer">
-        <div class="footer-grid">
-          <div>
-            <h4>Contáctanos</h4>
-            <ul>
-              <li><i>tel</i> +57 321 226 0538</li>
-              <li><i>gm</i> nailgrace_25@gmail.com</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Nuestros Servicios</h4>
-            <ul>
-              <li><i>cor</i>Manicure</li>
-              <li><i>cor</i>Pedicure</li>
-              <li><i>cor</i>Esmaltado semipermanente</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Redes Sociales</h4>
-            <ul>
-              <li><i>ig</i> @Nails_Grace</li>
-              <li><i>fac</i> @Nails_Grace</li>
-              <li><i>tik</i> @Nails_Grace</li>
-            </ul>
-          </div>
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
         </div>
-        <div class="footer-bottom">
-          © 2025 NailGrace · Política de privacidad · Términos
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
         </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
     </footer>
   </div>
 
   <!-- ===== LOGIN (ocupa casi toda la pantalla) ===== -->
   <div class="site auth-viewport" id="login" style="display:none;">
-    <div class="topbar">Inicio de sesión</div>
+
     <header class="header">
       <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
       <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-      <nav class="mainnav">
-        <a href="#home" class="active">Inicio</a>
-        <a href="#services">Servicios</a>
-        <a href="#register">Registro</a>
-        <a href="#login">Iniciar sesión</a>
-        <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
-      </nav>
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
+        </nav>
     </header>
 
     <div class="auth-page" role="main" aria-label="Iniciar sesión">
@@ -269,51 +346,85 @@
       
     </div>
     <footer class="site-footer">
-        <div class="footer-grid">
-          <div>
-            <h4>Contáctanos</h4>
-            <ul>
-              <li><i>tel</i> +57 321 226 0538</li>
-              <li><i>gm</i> nailgrace_25@gmail.com</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Nuestros Servicios</h4>
-            <ul>
-              <li><i>cor</i>Manicure</li>
-              <li><i>cor</i>Pedicure</li>
-              <li><i>cor</i>Esmaltado semipermanente</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Redes Sociales</h4>
-            <ul>
-              <li><i>ig</i> @Nails_Grace</li>
-              <li><i>fac</i> @Nails_Grace</li>
-              <li><i>tik</i> @Nails_Grace</li>
-            </ul>
-          </div>
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
         </div>
-        <div class="footer-bottom">
-          © 2025 NailGrace · Política de privacidad · Términos
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
         </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
     </footer>
   </div>
 
   <!-- ===== REGISTER (ocupa casi toda la pantalla) ===== -->
   <div class="site auth-viewport" id="register" style="display:none;">
-    <div class="topbar">Registro</div>
 
     <header class="header">
       <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
       <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-      <nav class="mainnav">
-        <a href="#home" class="active">Inicio</a>
-        <a href="#services">Servicios</a>
-        <a href="#register">Registro</a>
-        <a href="#login">Iniciar sesión</a>
-        <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
-      </nav>
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
+        </nav>
     </header>
 
     <div class="auth-page" role="main" aria-label="Registro">
@@ -335,34 +446,63 @@
       </div>
     </div>
     <footer class="site-footer">
-        <div class="footer-grid">
-          <div>
-            <h4>Contáctanos</h4>
-            <ul>
-              <li><i>tel</i> +57 321 226 0538</li>
-              <li><i>gm</i> nailgrace_25@gmail.com</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Nuestros Servicios</h4>
-            <ul>
-              <li><i>cor</i>Manicure</li>
-              <li><i>cor</i>Pedicure</li>
-              <li><i>cor</i>Esmaltado semipermanente</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Redes Sociales</h4>
-            <ul>
-              <li><i>ig</i> @Nails_Grace</li>
-              <li><i>fac</i> @Nails_Grace</li>
-              <li><i>tik</i> @Nails_Grace</li>
-            </ul>
-          </div>
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
         </div>
-        <div class="footer-bottom">
-          © 2025 NailGrace · Política de privacidad · Términos
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
         </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
     </footer>
   </div>
 
@@ -676,7 +816,22 @@ function bindAuthForms(){
 
   const fmt = v => new Intl.NumberFormat('es-CO', { style:'currency', currency:'COP' }).format(v);
 
-  
+  // Mostrar / ocultar el menú de usuario
+const userMenuBtn = document.getElementById("userMenuBtn");
+const userDropdown = document.getElementById("userDropdown");
+
+userMenuBtn.addEventListener("click", () => {
+  userDropdown.classList.toggle("active");
+});
+
+// Cerrar el menú al hacer clic fuera
+document.addEventListener("click", (e) => {
+  if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+    userDropdown.classList.remove("active");
+  }
+});
+
+
 function openModal(trigger){
   lastTrigger = trigger || null;
   modal.setAttribute('aria-hidden','false');
@@ -838,6 +993,26 @@ function goStep(n){
   renderServices();
   renderCart();
 })();
+// ========== MENÚ DE USUARIO EN TODAS LAS PÁGINAS ==========
+document.querySelectorAll('.user-icon').forEach((btn) => {
+
+  // Encuentra el dropdown que está justo al lado de cada botón
+  const dropdown = btn.parentElement.querySelector('.user-dropdown');
+
+  if (!dropdown) return;
+
+  // Alternar visualización al hacer clic
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // evita que se cierre inmediatamente
+    dropdown.classList.toggle('show');
+  });
+
+  // Cerrar el menú al hacer clic afuera
+  document.addEventListener('click', () => {
+    dropdown.classList.remove('show');
+  });
+});
+
 </script>
 
 </body>
