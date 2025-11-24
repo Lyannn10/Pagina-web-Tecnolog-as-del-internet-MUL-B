@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="Imagenes/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NailGrace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ===== Ventana emergente de cookies ===== -->
+  <div id="cookieOverlay" class="cookie-overlay" aria-hidden="true">
+    <div class="cookie-card" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
+      <div class="cookie-texts">
+        <h3 id="cookieTitle">Información importante</h3>
+        <p>
+          Usamos cookies para recordar tu sesión y ofrecerte una mejor experiencia en NailGrace.
+          Si continúas navegando o pulsas “Entendido”, aceptas el uso de estas cookies.
+        </p>
+      </div>
+      <button id="cookieOkBtn" class="cookie-btn">
+        ENTENDIDO
+      </button>
+    </div>
+  </div>
+  
+  <div class="site container" id="home">
+    <header class="header">
+        <a href="#home" class="brand">
+          <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
+        </a>
+
+
+        <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>Belleza y cuidado para tus uñas</h1>
+          <p>Manicura, pedicure y productos seleccionados para mantener tus manos y pies saludables y bonitos.</p>
+          <div class="hero-ctas">
+            <button data-reserve class="btn btn-primary" onclick="navigateTo('services')">Reserva tu cita</button>
+            <button class="btn btn-light" onclick="navigateTo('services')">Ver servicios</button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="thumb"><img src="Imagenes/logo1.jpg" alt="Miniatura" class="thumb-img"></div>
+          <div class="thumb"><img src="Imagenes/logo2.jpg" alt="Miniatura" class="thumb-img"></div>
+          <div class="thumb"><img src="Imagenes/logo3.jpg" alt="Miniatura" class="thumb-img"></div>
+        </div>
+      </div>
+    </section>
+
+    <h2 style="width:95%;max-width:var(--max-desktop);margin:20px auto 10px;">¿Cómo cuidar tus uñas?</h2>
+
+    <section class="tips-section">
+      <!-- Flecha izquierda -->
+      <button class="arrow left" aria-label="Anterior" onclick="moveSlide(-1)">‹</button>
+
+      <!-- Carrusel -->
+      <div class="tips-wrapper">
+        <div class="tips-list" id="tipsList" aria-label="Consejos para las uñas">
+          
+          <article class="tip-item">
+            <div class="tip-img"><img src="Imagenes/comeruñas.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-text">
+              <h3>No morderte las uñas.</h3>
+              <p>Morder las uñas debilita la lámina ungueal y puede causar infecciones. 
+                Usa técnicas de manejo de estrés y mantén las uñas limadas.</p>
+              <button data-reserve class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
+
+          <article class="tip-item">
+            <div class="tip-img"><img src="Imagenes/retocar.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-text">
+              <h3>Retocar cada 21–25 días</h3>
+              <p>El mantenimiento regular ayuda a mantener la forma y evita roturas.</p>
+              <button data-reserve class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
+
+          <article class="tip-item">
+            <div class="tip-img"><img src="Imagenes/arrancar.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-text">
+              <h3>No arrancar gel o acrílico.</h3>
+              <p>Retíralos con la ayuda de un profesional para no dañar la lámina ungueal.</p>
+              <button data-reserve class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
+
+          <article class="tip-item">
+            <div class="tip-img"><img src="Imagenes/guantes.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-text">
+              <h3>Usar guantes para proteger tus uñas.</h3>
+              <p>Al realizar tareas de limpieza o manipular químicos, protege tus uñas 
+                con guantes adecuados para evitar daños.</p>
+              <button data-reserve class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
+
+          <article class="tip-item">
+            <div class="tip-img"><img src="Imagenes/herramientas.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-text">
+              <h3>No usarlas como herramienta.</h3>
+              <p>Evita abrir objetos o raspar superficies con tus uñas, ya que esto las debilita 
+                y puede causar desprendimiento del esmalte.</p>
+              <button data-reserve class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
+
+          <article class="tip-item">
+            <div class="tip-img"><img src="Imagenes/rota.jpg" alt="Consejo imagen" class="tip-img-el"></div>
+            <div class="tip-text">
+              <h3>Acudir a tu manicurista en caso de desprendimiento.</h3>
+              <p>Si notas que el esmalte comienza a levantarse, visita tu manicurista 
+                para una reparación adecuada y evitar daños mayores.</p>
+              <button data-reserve class="btn btn-primary">Reserva tu cita</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Flecha derecha -->
+      <button class="arrow right" aria-label="Siguiente" onclick="moveSlide(1)">›</button>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ===== SERVICES (con 3 servicios + footer) ===== -->
+  <div class="site container" id="services">
+
+    <header class="header">
+      <a href="#home" class="brand">
+        <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
+        </nav>
+    </header>
+
+    <div class="services-inner">
+      <h2 style="margin:0 0 12px;">Servicios</h2>
+
+      <section class="services-list">
+        <!-- Servicio 1 -->
+        <article class="service-card">
+          <div class="service-media"><img src="Imagenes/uñasclasico.jpg" alt="Manicure" class="service-img"></div>
+          <div>
+            <h3>Manicure clásico</h3>
+            <p class="muted">Corte, limado y esmaltado tradicional para mantener tus uñas en forma.</p>
+            <div class="service-cta"><button data-reserve class="btn btn-primary" data-service-name="Manicure clásico" data-price="25000">Reserva tu cita</button></div>
+          </div>
+        </article>
+
+        <!-- Servicio 2 -->
+        <article class="service-card">
+          <div>
+            <h3>Pedicure clásico</h3>
+            <p class="muted">Relajación y cuidado completo de pies, con limpieza, exfoliación y esmaltado.</p>
+            <div class="service-cta"><button data-reserve class="btn btn-primary" data-service-name="Pedicure clásico" data-price="35000">Reserva tu cita</button></div>
+          </div>
+          <div class="service-media"><img src="Imagenes/pies.jpg" alt="Pedicure" class="service-img"></div>
+        </article>
+
+        <!-- Servicio 3 -->
+        <article class="service-card">
+          <div class="service-media"><img src="Imagenes/perma.jpg" alt="Esmaltado semipermanente" class="service-img"></div>
+          <div>
+            <h3>Esmaltado semipermanente</h3>
+            <p class="muted">Color de larga duración, brillo intenso y resistencia hasta por semanas.</p>
+            <div class="service-cta"><button data-reserve class="btn btn-primary" data-service-name="Esmaltado semipermanente" data-price="40000">Reserva tu cita</button></div>
+          </div>
+        </article>
+      </section>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== LOGIN (ocupa casi toda la pantalla) ===== -->
+  <div class="site auth-viewport" id="login" style="display:none;">
+
+    <header class="header">
+      <a href="#home" class="brand">
+        <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
+        </nav>
+    </header>
+
+    <div class="auth-page" role="main" aria-label="Iniciar sesión">
+      <div class="auth-left">
+        <div class="text">
+          <h2>Inicia sesión para disfrutar de nuestros servicios</h2>
+          <p class="muted">Accede para reservar y disfrutar de mas servicios.</p>
+        </div>
+      </div>
+
+      <div class="auth-card" style="width:420px;">
+        <h3>NailGrace</h3>
+
+        <!-- FORM LOGIN -->
+        <form method="POST" action="login.php">
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Correo electrónico" 
+            aria-label="Correo electrónico" 
+            required
+          >
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Contraseña" 
+            aria-label="Contraseña" 
+            required
+          >
+          <button class="btn btn-primary" style="width:100%;" type="submit">
+            Continuar
+          </button>
+        </form>
+
+        <p class="muted" style="font-size:13px; text-align:center; margin-top:8px;">
+          ¿No tienes cuenta? <a href="#register" onclick="navigateTo('register')">Regístrate</a>
+        </p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== REGISTER (ocupa casi toda la pantalla) ===== -->
+  <div class="site auth-viewport" id="register" style="display:none;">
+
+    <header class="header">
+      <a href="#home" class="brand">
+        <img src="Imagenes/logo.png" alt="NailGrace logo" height="50">
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+        <nav class="mainnav">
+          <a href="#home" class="active">Inicio</a>
+          <a href="#services">Servicios</a>
+          <a href="#" class="reserve-link" data-reserve>Reservar cita</a>
+          <button class="user-icon" id="userMenuBtn">
+            <img src="Imagenes/Icon Usuario.png" alt="Usuario">
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button onclick="navigateTo('login')" class="dropdown-btn">Iniciar sesión</button>
+            <button onclick="navigateTo('register')" class="dropdown-btn">Registrarse</button>
+          </div>
+        </nav>
+    </header>
+
+    <div class="auth-page" role="main" aria-label="Registro">
+      <div class="auth-left">
+        <div class="text">
+          <h2>¡Bienvenido! Crea tu cuenta</h2>
+          <p class="muted">Regístrate para reservar más rápido y cuidar tus uñas.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="auth-card" style="width:420px;">
+          <h3>NailGrace</h3>
+          <!-- FORM REGISTRO -->
+          <form method="POST" action="register.php">
+            <input 
+              type="text" 
+              name="nombre" 
+              placeholder="Nombre completo" 
+              aria-label="Nombre completo" 
+              required
+            >
+            <input 
+              type="tel" 
+              name="telefono" 
+              placeholder="Teléfono" 
+              aria-label="Teléfono"
+            >
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Correo electrónico" 
+              aria-label="Correo electrónico" 
+              required
+            >
+            <input 
+              type="password" 
+              name="password" 
+              placeholder="Contraseña" 
+              aria-label="Contraseña" 
+              required
+            >
+            <button class="btn btn-primary" style="width:100%;" type="submit">
+              Registrarme
+            </button>
+          </form>
+          <p class="muted" style="font-size:13px; text-align:center; margin-top:8px;">
+            ¿Ya eres miembro? <a href="#login" onclick="navigateTo('login')">Iniciar sesión</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2025 NailGrace · Política de privacidad · Términos
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // ======== Navegación entre secciones ========
+    const sections = ["home","services","login","register"];
+
+    function showSection(id){
+      sections.forEach(s => {
+        const el = document.getElementById(s);
+        if(!el) return;
+        el.style.display = (s === id) ? "" : "none";
+      });
+
+      document.querySelectorAll('header .mainnav a').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (href.includes(id)) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      window.scrollTo({top:0, behavior:'instant'});
+    }
+
+    function navigateTo(id){
+      location.hash = id;
+      showSection(id);
+    }
+
+    window.addEventListener('hashchange', ()=> {
+      const id = location.hash.replace('#','') || 'home';
+      if(sections.includes(id)) showSection(id);
+    });
+
+    // inicializar vista
+    showSection(location.hash.replace('#','') || 'home');
+
+    // ======== Carrusel de tips ========
+    const list = document.getElementById("tipsList");
+    const items = document.querySelectorAll(".tip-item");
+    const total = items.length;
+    let currentSlide = 0;
+
+    function moveSlide(direction) {
+      currentSlide = (currentSlide + direction + total) % total;
+      list.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // ======== Menú hamburguesa ========
+    document.querySelectorAll('.header').forEach(header => {
+      const toggle = header.querySelector('.menu-toggle');
+      const nav = header.querySelector('.mainnav');
+
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('active');
+          nav.classList.toggle('active');
+          toggle.innerHTML = toggle.classList.contains('active') ? '✕' : '&#9776;';
+        });
+
+        nav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.innerHTML = '&#9776;';
+          });
+        });
+      }
+    });
+  </script>
+
+  <!-- === NG-BOOKING: Modal de reservas === -->
+  <div class="ng-booking-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="ng-booking-title" data-ng-booking>
+    <div class="ng-booking-overlay" data-ng-close></div>
+
+    <div class="ng-booking-dialog" role="document" tabindex="-1">
+      <header class="ng-booking-header">
+        <h2 id="ng-booking-title">Reservar cita</h2>
+        <button class="ng-booking-close" aria-label="Cerrar" data-ng-close>✕</button>
+      </header>
+
+      <main class="ng-booking-body">
+        <ol class="ng-booking-steps" aria-hidden="false">
+          <li data-step="1" class="ng-step-ind">1. Fecha y hora</li>
+          <li data-step="2" class="ng-step-ind">2. Servicios</li>
+          <li data-step="3" class="ng-step-ind">3. Confirmar</li>
+        </ol>
+
+        <!-- Paso 1 -->
+        <section class="ng-step" data-step="1">
+          <label for="ng-date">Fecha
+            <input id="ng-date" type="date" aria-label="Fecha de la cita">
+          </label>
+          <label for="ng-time">Hora
+            <input id="ng-time" type="time" aria-label="Hora de la cita" step="900">
+          </label>
+
+          <div class="ng-actions">
+            <button type="button" class="ng-btn ng-btn-light" data-ng-cancel>Cancelar</button>
+            <button type="button" class="ng-btn ng-btn-primary" data-ng-next>Continuar</button>
+          </div>
+        </section>
+
+        <!-- Paso 2 -->
+        <section class="ng-step" data-step="2" hidden>
+          <div class="ng-services-wrap">
+            <div id="ng-services-list" class="ng-services-list" aria-label="Servicios disponibles" role="list">
+              <!-- renderizado por JS -->
+            </div>
+
+            <aside class="ng-cart" aria-label="Resumen">
+              <h4>Resumen</h4>
+              <ul id="ng-cart-list" aria-live="polite"></ul>
+              <div class="ng-cart-total">Total: <strong id="ng-cart-total">—</strong></div>
+
+              <div class="ng-actions">
+                <button type="button" class="ng-btn ng-btn-light" data-ng-back>Volver</button>
+                <button type="button" class="ng-btn ng-btn-primary" data-ng-next>Continuar</button>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- Paso 3 -->
+        <section class="ng-step" data-step="3" hidden>
+          <div id="ng-confirm" aria-live="polite"></div>
+          <div class="ng-actions">
+            <button type="button" class="ng-btn ng-btn-light" data-ng-back>Volver</button>
+            <button type="button" class="ng-btn ng-btn-primary" data-ng-confirm>Confirmar</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <!-- === FIN modal NG === -->
+
+  <script>
+  /* booking-modal + user dropdown */
+  (function(){
+    const defaultServices = [
+      { id:'svc-manicure', name:'Manicure clásico', price:25000 },
+      { id:'svc-pedicure', name:'Pedicure clásico', price:35000 },
+      { id:'svc-esmaltado', name:'Esmaltado semipermanente', price:40000 }
+    ];
+    const modal = document.querySelector('[data-ng-booking]');
+    if(!modal) return;
+    const dialog = modal.querySelector('.ng-booking-dialog');
+    const overlay = modal.querySelector('.ng-booking-overlay');
+    const dateEl = modal.querySelector('#ng-date');
+    const timeEl = modal.querySelector('#ng-time');
+    const servicesListEl = modal.querySelector('#ng-services-list');
+    const cartListEl = modal.querySelector('#ng-cart-list');
+    const cartTotalEl = modal.querySelector('#ng-cart-total');
+    const confirmEl = modal.querySelector('#ng-confirm');
+
+    let step = 1;
+    let selected = new Map();
+    let lastTrigger = null;
+
+    const fmt = v => new Intl.NumberFormat('es-CO', { style:'currency', currency:'COP' }).format(v);
+
+    function openModal(trigger){
+      lastTrigger = trigger || null;
+      modal.setAttribute('aria-hidden','false');
+      dialog.focus();
+
+      selected.clear();
+      renderServices();
+      renderCart();
+
+      if(trigger && trigger.dataset && trigger.dataset.serviceName){
+        const svc = { id:'pre-'+Date.now(), name: trigger.dataset.serviceName, price: Number(trigger.dataset.price||0) };
+        selected.set(svc.id, svc);
+        renderCart();
+        renderServices();
+      }
+
+      goStep(1);
+    }
+      
+    function closeModal(){
+      modal.setAttribute('aria-hidden','true');
+      selected.clear();
+      if(dateEl) dateEl.value='';
+      if(timeEl) timeEl.value='';
+      renderServices();
+      renderCart();
+      if(confirmEl) confirmEl.innerHTML='';
+
+      const s3ActionsContainer = modal.querySelector('.ng-step[data-step="3"] .ng-actions');
+      if(s3ActionsContainer && typeof _ng_step3_actions !== 'undefined' && _ng_step3_actions) {
+        s3ActionsContainer.innerHTML = _ng_step3_actions;
+      }
+
+      if(lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+      lastTrigger = null;
+    }
+
+    function goStep(n){
+      step = n;
+      modal.querySelectorAll('.ng-step').forEach(s => {
+        s.hidden = Number(s.dataset.step) !== n;
+      });
+      modal.querySelectorAll('.ng-step-ind').forEach(ind => {
+        ind.classList.toggle('ng-active', Number(ind.dataset.step) === n);
+      });
+      if(n === 1 && dateEl) dateEl.focus();
+      if(n === 2) {
+        const first = servicesListEl.querySelector('.ng-service-item');
+        if(first) first.focus();
+      }
+      if(n === 3) renderConfirm();
+    }
+
+    function getServicesList(){
+      const domBtns = Array.from(document.querySelectorAll('[data-reserve][data-service-name]'));
+      if(domBtns.length){
+        return domBtns.map((b,i) => ({ id:'dom-'+i, name: b.dataset.serviceName, price: Number(b.dataset.price||0) }));
+      }
+      return defaultServices.slice();
+    }
+
+    function renderServices(){
+      servicesListEl.innerHTML = '';
+      const services = getServicesList();
+      services.forEach(svc=>{
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ng-service-item';
+        btn.setAttribute('aria-pressed', selected.has(svc.id) ? 'true' : 'false');
+        btn.innerHTML = `<span class="ng-svc-name">${svc.name}</span><strong class="ng-svc-price">${fmt(svc.price)}</strong>`;
+        btn.addEventListener('click', () => {
+          if(selected.has(svc.id)) selected.delete(svc.id);
+          else selected.set(svc.id, svc);
+          btn.setAttribute('aria-pressed', selected.has(svc.id) ? 'true' : 'false');
+          renderCart();
+        });
+        servicesListEl.appendChild(btn);
+      });
+    }
+
+    function renderCart(){
+      cartListEl.innerHTML = '';
+      let total = 0;
+      if(selected.size === 0){
+        cartListEl.innerHTML = '<li style="opacity:.7">No hay servicios seleccionados</li>';
+        cartTotalEl.textContent = '—';
+        return;
+      }
+      selected.forEach(svc => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${svc.name}</span><strong>${fmt(svc.price)}</strong>`;
+        cartListEl.appendChild(li);
+        total += Number(svc.price || 0);
+      });
+      cartTotalEl.textContent = fmt(total);
+    }
+
+    function renderConfirm(){
+      const servicesHtml = Array.from(selected.values()).map(s => `<li>${s.name} — ${fmt(s.price)}</li>`).join('');
+      const total = Array.from(selected.values()).reduce((a,b) => a + Number(b.price || 0), 0);
+      confirmEl.innerHTML = `
+        <p><strong>Fecha:</strong> ${dateEl.value || '—'} &nbsp; <strong>Hora:</strong> ${timeEl.value || '—'}</p>
+        <h4>Servicios</h4>
+        <ul>${servicesHtml || '<li>No seleccionaste servicios</li>'}</ul>
+        <p class="ng-cart-total">Total: <strong>${fmt(total)}</strong></p>
+      `;
+    }
+
+    const _ng_step3_actions = (function(){
+      const s3 = modal.querySelector('.ng-step[data-step="3"] .ng-actions');
+      return s3 ? s3.innerHTML : '';
+    })();
+
+    function confirmBooking(){
+      if(!dateEl.value || !timeEl.value){
+        alert('Selecciona fecha y hora antes de confirmar.');
+        goStep(1);
+        return;
+      }
+      if(selected.size === 0){
+        alert('Selecciona al menos un servicio.');
+        goStep(2);
+        return;
+      }
+
+      const firstService = Array.from(selected.values())[0];
+
+      const formData = new FormData();
+      formData.append('fecha', dateEl.value);
+      formData.append('hora',  timeEl.value);
+      formData.append('servicio_nombre', firstService.name);
+
+      confirmEl.innerHTML = `<p>Guardando tu reserva...</p>`;
+
+      fetch('reservar.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data.status === 'success') {
+          confirmEl.innerHTML = `<p><strong>${data.message}</strong></p>`;
+        } else {
+          const msg = data.message || 'No se pudo crear la reserva.';
+          confirmEl.innerHTML = `<p style="color:#b91c1c;"><strong>${msg}</strong></p>`;
+          if (data.code === 'not_logged_in' && typeof navigateTo === 'function') {
+            setTimeout(() => {
+              closeModal();
+              navigateTo('login');
+            }, 1500);
+          }
+        }
+
+        const actionsContainer = modal.querySelector('.ng-step[data-step="3"] .ng-actions');
+        if (actionsContainer) {
+          actionsContainer.innerHTML = '';
+          const closeBtn = document.createElement('button');
+          closeBtn.type = 'button';
+          closeBtn.className = 'ng-btn ng-btn-primary';
+          closeBtn.textContent = 'Cerrar';
+          closeBtn.setAttribute('data-ng-close','');
+          actionsContainer.appendChild(closeBtn);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        confirmEl.innerHTML = `
+          <p style="color:#b91c1c;">
+            <strong>Ocurrió un error al conectar con el servidor.</strong>
+          </p>
+        `;
+      });
+    }
+
+    function bindTriggers(){
+      const triggers = Array.from(document.querySelectorAll('[data-reserve], .reserve-btn, .reserve-link'));
+      triggers.forEach(t => {
+        t.addEventListener('click', (e) => {
+          if(e.preventDefault) e.preventDefault();
+          openModal(e.currentTarget);
+        });
+      });
+    }
+
+    modal.addEventListener('click', (e) => {
+      if(e.target.closest('[data-ng-close]')) { closeModal(); return; }
+      if(e.target.closest('[data-ng-cancel]')) { closeModal(); return; }
+      if(e.target.closest('[data-ng-next]')) {
+        if(step === 1) {
+          if(!dateEl.value || !timeEl.value){ alert('Selecciona fecha y hora antes de continuar.'); return; }
+          goStep(2); return;
+        }
+        if(step === 2) {
+          if(selected.size === 0) { alert('Selecciona al menos un servicio.'); return; }
+          goStep(3); return;
+        }
+      }
+      if(e.target.closest('[data-ng-back]')) { goStep(Math.max(1, step - 1)); return; }
+      if(e.target.closest('[data-ng-confirm]')) { confirmBooking(); return; }
+    });
+
+    overlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if(modal.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') closeModal();
+    });
+
+    bindTriggers();
+    renderServices();
+    renderCart();
+  })();
+
+  // dropdown en todos los header .user-icon
+  document.querySelectorAll('.user-icon').forEach((btn) => {
+    const dropdown = btn.parentElement.querySelector('.user-dropdown');
+    if (!dropdown) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('active');
+    });
+  });
+
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var overlay = document.getElementById('cookieOverlay');
+    var btn = document.getElementById('cookieOkBtn');
+    if (!overlay || !btn) return;
+
+    var COOKIE_NAME = 'ng_cookie_consent_v2';
+
+    function hasConsent() {
+      return document.cookie.split(';').some(function(c) {
+        return c.trim().indexOf(COOKIE_NAME + '=1') === 0;
+      });
+    }
+
+    function showOverlay() {
+      overlay.classList.add('is-visible');
+      document.body.classList.add('cookie-lock');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function hideOverlay() {
+      overlay.classList.remove('is-visible');
+      document.body.classList.remove('cookie-lock');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    btn.addEventListener('click', function(){
+      var d = new Date();
+      d.setFullYear(d.getFullYear() + 1); // 1 año
+      document.cookie = COOKIE_NAME + '=1; expires=' + d.toUTCString() + '; path=/';
+      hideOverlay();
+    });
+
+    if (!hasConsent()) {
+      showOverlay();
+    }
+  });
+  </script>
+
+
+</body>
+</html>
