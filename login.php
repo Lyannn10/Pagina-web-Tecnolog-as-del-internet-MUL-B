@@ -1,71 +1,42 @@
 <?php
-// NADA antes de este <?php (ni espacios, ni saltos de línea)
 session_start();
-require 'db.php'; // aquí incluyes tu conexión PDO en $pdo
+require_once 'db.php';
 
-// Muestra errores mientras depuras (luego puedes quitar esto)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: index.html#login');
+    exit;
+}
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Recoger datos del formulario
-    $email    = $_POST['email']    ?? '';
-    $password = $_POST['password'] ?? '';
+$email    = trim($_POST['email'] ?? '');
+$password = $_POST['password'] ?? '';
 
-    // Por si llegan en blanco
-    $email    = trim($email);
-    $password = trim($password);
+if ($email === '' || $password === '') {
+    header('Location: index.html#login');
+    exit;
+}
 
-    if ($email === '' || $password === '') {
-        echo "Faltan datos de correo o contraseña.";
+try {
+    $stmt = $pdo->prepare('SELECT id, nombre, email, password_hash, rol FROM usuarios WHERE email = :email');
+    $stmt->execute(['email' => $email]);
+    $user = $stmt->fetch();
+
+    if (!$user || !password_verify($password, $user['password_hash'])) {
+        header('Location: index.html#login');
         exit;
     }
 
-    try {
-        // Buscar usuario por email en tabla `usuarios`
-        $sql = "SELECT id, nombre, password_hash, rol 
-                FROM usuarios 
-                WHERE email = :email
-                LIMIT 1";
+    // Guardar datos en sesión
+    $_SESSION['usuario_id']     = $user['id'];
+    $_SESSION['usuario_nombre'] = $user['nombre'];
+    $_SESSION['usuario_email']  = $user['email'];
+    $_SESSION['usuario_rol']    = $user['rol'];  // 👈 IMPORTANTE
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([':email' => $email]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    setcookie('ng_email', $user['email'], time() + 7*24*60*60, '/');
 
-        // Validar usuario y contraseña
-        if ($user && password_verify($password, $user['password_hash'])) {
+    header('Location: admin.php'); // si el admin entra directo al panel
+    exit;
 
-            // Guardar datos en sesión
-            $_SESSION['usuario_id'] = $user['id'];
-            $_SESSION['nombre']     = $user['nombre'];
-            $_SESSION['rol']        = $user['rol']; // admin | cliente
-
-            // Redirigir según rol
-            if ($user['rol'] === 'admin') {
-                header('Location: admin.php');
-                exit;
-            } else {
-                header('Location: index.html#home');
-                exit;
-            }
-
-        } else {
-            // Credenciales incorrectas
-            echo "Correo o contraseña incorrectos.";
-            exit;
-        }
-
-    } catch (PDOException $e) {
-        // Error de base de datos
-        echo "Error al conectar con la base de datos.";
-        // Si quieres ver el detalle mientras depuras:
-        // echo $e->getMessage();
-        exit;
-    }
-
-} else {
-    // Si acceden a login.php por GET, devolverlos al formulario
+} catch (PDOException $e) {
     header('Location: index.html#login');
     exit;
 }

@@ -1,23 +1,13 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
-require_once __DIR__ . '/db.php';
+require_once 'db.php'; // 👈 conexión a la base de datos ($pdo)
 
-// 1. Comprobar que haya sesión
-if (empty($_SESSION['usuario_id'])) {
-    header('Location: index.html#login');
-    exit;
-}
-
-// 2. Comprobar que el rol sea admin
-// CAMBIO: antes era $_SESSION['usuario_rol']
-$rol = $_SESSION['rol'] ?? 'cliente';
-if ($rol !== 'admin') {
-    http_response_code(403);
-    echo 'Acceso denegado. Esta sección es solo para administradores.';
+// Solo permitir acceso a admins
+if (
+    !isset($_SESSION['usuario_id'], $_SESSION['usuario_rol']) ||
+    $_SESSION['usuario_rol'] !== 'admin'
+) {
+    echo 'Acceso denegado. Sección solo para administradores.';
     exit;
 }
 
@@ -181,8 +171,8 @@ function e($str) {
         <p class="muted" style="margin:0;">
           Hola,
           <?php
-          // CAMBIO: antes era $_SESSION['usuario_nombre']
-          echo e($_SESSION['nombre'] ?? '');
+          // usamos la variable de sesión que sí existe: usuario_nombre
+          echo e($_SESSION['usuario_nombre'] ?? '');
           ?>
           (admin)
         </p>
@@ -303,9 +293,63 @@ function e($str) {
 
     </main>
 
-    <footer class="site-footer">
+<footer class="site-footer">
+      <div class="footer-grid">
+
+        <div>
+          <h4>Contáctanos</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Telefono.png" alt="Teléfono" class="footer-icon">
+              <span>+57 321 226 0538</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Correo.png" alt="Correo" class="footer-icon">
+              <span>nailgrace_25@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Nuestros Servicios</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Manicure" class="footer-icon">
+              <span>Manicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Pedicure" class="footer-icon">
+              <span>Pedicure</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Corazon.png" alt="Esmaltado semipermanente" class="footer-icon">
+              <span>Esmaltado semipermanente</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Redes Sociales</h4>
+          <ul>
+            <li>
+              <img src="Imagenes/Icon Instagram.png" alt="Instagram" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon Facebook.png" alt="Facebook" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+            <li>
+              <img src="Imagenes/Icon TikTok.png" alt="TikTok" class="footer-icon">
+              <span>@Nails_Grace</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
       <div class="footer-bottom">
-        © 2025 NailGrace · Panel administrador
+        © 2025 NailGrace · Política de privacidad · Términos
       </div>
     </footer>
   </div>
